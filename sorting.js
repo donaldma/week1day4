@@ -5,18 +5,12 @@ var students = [
   { id: 4, name: "alex",     age: 30 }
 ];
 
-  students.sort(function(a,b) {
-    var nameA = a.name.toLowerCase();
-    var nameB = b.name.toLowerCase();
-    if (nameA === nameB) {
-      students.sort(function(c,d) {
-        var ageC = c.age;
-        var ageD = d.age;
-        return ageC - ageD;
-      });
-    } else {
-      return nameA > nameB
-    }
-  });
+students.sort(function(a, b) {
+  if(a.name !== b.name) {
+    return a.name.localeCompare(b.name);
+  } else {
+    return b.age - a.age;
+  }
+});
 
 console.log(students);
